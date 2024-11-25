@@ -57,18 +57,18 @@ public class UsuarioControlador {
     }
 
     /**
-     * Endpoint para eliminar un usuario por su nombre.
+     * Endpoint para eliminar un usuario por su email.
      *
-     * @param nombreUsuario nombre del usuario a eliminar
+     * @param emailUsuario nombre del usuario a eliminar
      * @return ResponseEntity con el mensaje de éxito o error
      */
-    @DeleteMapping("/{nombreUsuario}")
-    public ResponseEntity<String> eliminarUsuario(@PathVariable String nombreUsuario) {
+    @DeleteMapping("/{emailUsuario}")
+    public ResponseEntity<String> eliminarUsuario(@PathVariable String emailUsuario) {
         try {
-            eliminarUsuario(nombreUsuario);
+            eliminarUsuario(emailUsuario);
             return ResponseEntity.ok("Usuario eliminado con éxito.");
         } catch (EntityNotFoundException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado: " + nombreUsuario);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado: " + emailUsuario);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al eliminar el usuario: " + e.getMessage());
         }

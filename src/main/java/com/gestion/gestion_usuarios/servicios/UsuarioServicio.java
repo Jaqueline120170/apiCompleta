@@ -77,8 +77,8 @@ public class UsuarioServicio {
      * @param nicknameUsuario nickname del usuario que se desea eliminar
      */
     @Transactional
-    public void eliminarUsuario(String nicknameUsuario) {
-        usuarioRepository.deleteByNicknameUsuario(nicknameUsuario);
+    public void eliminarUsuario(String emailUsuario) {
+        usuarioRepository.deleteByEmailUsuario(emailUsuario);
     }
     
     /**
